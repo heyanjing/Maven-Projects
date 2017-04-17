@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.he.maven</groupId>
+    <artifactId>maven-projects</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Maven-Ocr</module>
+    </modules>
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <compiler.version>3.3</compiler.version>
+        <surefire.version>2.12.4</surefire.version>
+
+
+        <junit.version>3.8.1</junit.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <lombok.version>1.16.6</lombok.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <jetbrick.version>2.1.2</jetbrick.version>
+        <guava.version>21.0</guava.version>
+        <fastjson.version>1.2.30</fastjson.version>
+        <httpcore.version>4.2.1</httpcore.version>
+        <httpclient.version>4.2.1</httpclient.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+        <a.version>3.1.0</a.version>
+
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.subchen</groupId>
+                <artifactId>jetbrick-template-web</artifactId>
+                <version>${jetbrick.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!--ocr用到的包 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!--编译-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+            <!--执行测试单元-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+
+</project>
