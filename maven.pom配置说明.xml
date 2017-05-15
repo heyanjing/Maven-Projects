@@ -1,0 +1,25 @@
+<!--
+    为pom增加一个仓库,如果.setting中配置了镜像仓库时
+                            当mirrors.mirror.mirrorOf为*时，表示所有的资源都从该仓库中下载
+                            当mirrors.mirror.mirrorOf为central时，表示central资源从该仓库中下载
+
+-->
+<!--
+    说明:
+-->
+<repositories>
+    <!--第三方资源库-->
+    <repository>
+        <id>feilong-repository</id>
+        <url>https://raw.github.com/venusdrogon/feilong-platform/repository</url>
+    </repository>
+    <!--maven默认的中央仓库-->
+    <repository>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>Central Repository</name>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+</repositories>

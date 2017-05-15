@@ -1,0 +1,98 @@
+
+
+
+
+
+
+<!--
+下面的是自己搭建仓库
+-->
+
+
+
+<!--
+	在maven项目的pom文件中中加入该配置可以将当前的项目上传到nexus私服上去
+	命令:mvn clean source:jar deploy(同时将jar和源码jar上传到私服)
+	下面的id要与maven的配置文件.setting中的service的id对应
+-->
+<distributionManagement>
+	<repository>
+		<id>releases</id>
+		<url>http://localhost:8081/nexus/repository/maven-releases/</url>
+	</repository>
+	<snapshotRepository>
+		<id>snapshots</id>
+		<url>http://localhost:8081/nexus/repository/maven-snapshots/</url>
+	</snapshotRepository>
+</distributionManagement>
+
+
+<!--.setting文件中的配置-->
+<!--.setting文件中的配置-->
+<!--.setting文件中的配置-->
+
+<!--
+	私服的用户名和密码
+-->
+<servers>
+	<server>
+		<id>releases</id>
+		<username>admin</username>
+		<password>000000</password>
+	</server>
+	<server>
+		<id>snapshots</id>
+		<username>admin</username>
+		<password>000000</password>
+	</server>
+</servers>
+<!--
+	镜像:其中mirrorOf代表要被镜像掉的资源库(repository或者pluginRepository，包含maven默认的资源库)
+	镜像的作用：拦截对应id的资源库然后将镜像的url覆盖原本的资源库的url,从而达到使用原有资源库时访问新的url(解决网速差的问题或不能访问国外网站等)
+-->
+<mirrors>
+	<mirror>
+		<id>nexus</id>
+		<mirrorOf>*</mirrorOf>
+		<url>http://localhost:8081/nexus/repository/maven-public/</url>
+	</mirror>
+</mirrors>
+<!--
+	如果一个settings中的profile被激活，它的值会覆盖任何其它定义在POM中的带有相同id的profile
+	资源配置文件中定义了资源或插件资源的相关信息
+-->
+<profiles>
+	<profile>
+		<id>nexus</id>
+		<repositories>
+			<repository>
+				<id>nexus-repo</id>
+				<url>http://localhost:8081/nexus/repository/maven-public/</url>
+				<releases>
+					<enabled>true</enabled>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+				</snapshots>
+			</repository>
+		</repositories>
+		<pluginRepositories>
+			<pluginRepository>
+				<id>nexus-pluginRepo</id>
+				<url>http://localhost:8081/nexus/repository/maven-public/</url>
+				<releases>
+					<enabled>true</enabled>
+				</releases>
+				<snapshots>
+					<enabled>true</enabled>
+				</snapshots>
+			</pluginRepository>
+		</pluginRepositories>
+	</profile>
+</profiles>
+<!--
+	激活某个资源配置文件;对应资源配置文件中id
+-->
+<activeProfiles>
+	<activeProfile>nexus</activeProfile>
+</activeProfiles>
